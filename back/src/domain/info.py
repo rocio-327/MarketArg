@@ -2,11 +2,11 @@ import sqlite3
 
 
 class Info:
-    def __init__(self, app_name):
-        self.app_name = app_name
+    def __init__(self, market_name):
+        self.market_name = market_name
 
     def to_dict(self):
-        return {"app_name": self.app_name}
+        return {"market_name": self.market_name}
 
 
 class InfoRepository:

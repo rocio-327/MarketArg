@@ -1,8 +1,14 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="@/assets/img/logo.png" />
-    <h1>{{ info.app_name }}</h1>
-  </div>
+    <main class="grid">
+          <article v-for="seller in sellers" :key="seller.seller_id">
+            <img :src="seller.seller_logo" alt="Sample photo">
+            <div class="text">
+              <h3>{{seller.seller_name}}</h3>
+              <p>{{seller.seller_description}}</p>
+              <button>Ver tienda</button>
+            </div>
+          </article>
+        </main>
 </template>
 
 <script>
@@ -11,7 +17,7 @@ export default {
   name: 'Home',
   data() {
     return {
-      info: {}
+      sellers: []
     }
   },
   mounted() {
@@ -19,8 +25,8 @@ export default {
   },
   methods: {
     async loadData() {
-      const response = await fetch('http://localhost:5000/api/info')
-      this.info = await response.json()
+      const response = await fetch('http://localhost:5000/api/sellers')
+      this.sellers = await response.json()
     }
   }
 
@@ -29,7 +35,70 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-style: italic;
+.grid {
+  margin: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  align-items: stretch;
+  }
+
+.grid > article {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  border-radius: 3px;
+  text-align: center;
 }
+
+.grid > article:hover{
+  transition: transform .1s ease-out;
+  transform: translateY(5px);
+}
+
+.grid > article img {
+  width: 100%;
+}
+
+
+.text {
+  padding: 0 20px 20px;
+}
+
+.text > h3{
+  text-transform: uppercase;
+}
+
+.text > button {
+  background: linear-gradient(to right, #f030a7, #f0308d, #f03061);
+  border-radius: 3px;
+  border: 0;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  font-weight: 600;
+  text-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  text-transform: uppercase;
+}
+
+
+@media (max-width: 768px){
+  .grid{
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0;
+  }
+}
+
+@media (max-width: 500px){
+  .grid{
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0;
+  }
+
+  .grid > article{
+    text-align: center;
+  }
+}
+
 </style>
+
+
