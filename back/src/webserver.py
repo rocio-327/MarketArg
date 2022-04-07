@@ -13,8 +13,13 @@ def create_app(repositories):
         return "...magic!"
 
     @app.route("/api/sellers", methods=["GET"])
-    def sellers_get():
+    def get_sellers():
         sellers = repositories["sellers"].get_all_sellers()
         return object_to_json(sellers)
+
+    @app.route("/api/sellers/<id>", methods=["GET"])
+    def get_by_seller_id(id):
+        seller = repositories["products"].get_product_by_seller_id(id)
+        return object_to_json(seller)
 
     return app

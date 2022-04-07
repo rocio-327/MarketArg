@@ -77,7 +77,7 @@ class SellerRepository:
         return sellers
 
     def get_by_seller_id(self, seller_id):
-        sql = """SELECT * FROM contacts WHERE seller_id=:seller_id"""
+        sql = """SELECT * FROM sellers WHERE seller_id=:seller_id"""
         conn = self.create_conn()
         cursor = conn.cursor()
         cursor.execute(sql, {"seller_id": seller_id})

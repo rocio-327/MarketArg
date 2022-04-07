@@ -38,7 +38,7 @@ export default {
 .grid {
   margin: 30px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
   align-items: stretch;
   }
@@ -56,7 +56,7 @@ export default {
 }
 
 .grid > article img {
-  width: 100%;
+  width: 40%;
 }
 
 
@@ -74,7 +74,7 @@ export default {
   border: 0;
   color: white;
   padding: 10px;
-  width: 100%;
+  width: 80%;
   font-weight: 600;
   text-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
   text-transform: uppercase;
@@ -88,7 +88,7 @@ export default {
   }
 }
 
-@media (max-width: 500px){
+@media (max-width: 200px){
   .grid{
     grid-template-columns: repeat(1, 1fr);
     margin: 0;
