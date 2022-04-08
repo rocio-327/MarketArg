@@ -1,15 +1,15 @@
 
 <template>
 <main>
-<figure class="snip1268">
+<figure v-for="product in product_list" :key="product" class="snip1268">
   <div class="image">
-    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample4.jpg" alt="sq-sample4"/>
+    <img :src="product.product_img" alt="sq-sample4"/>
     <a href="#" class="add-to-cart">Add to Cart</a>
   </div>
   <figcaption>
-    <h2>Denim Shirt</h2>
-    <p>My family is dysfunctional and my parents won't empower me. Consequently I'm not self actualized.</p>
-    <div class="price">$65.00 </div>
+    <h2>{{product.product_name}}</h2>
+    <p>{{product.product_description}}</p>
+    <div class="price">{{product.product_price}} </div>
   </figcaption>
 </figure>
 
@@ -31,8 +31,8 @@ export default {
   },
   methods: {
     async loadData() {
-      const response = await fetch('http://localhost:5000/api/sellers')
-      this.sellers = await response.json()
+      const response = await fetch('http://localhost:5000/api/sellers/'+ this.$route.params.id)
+      this.product_list = await response.json()
     }
   }
 }

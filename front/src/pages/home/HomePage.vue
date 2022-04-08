@@ -5,9 +5,10 @@
             <div class="text">
               <h3>{{seller.seller_name}}</h3>
               <p>{{seller.seller_description}}</p>
-              <button>Ver tienda</button>
+              <button @click="sendToShop(seller.seller_id)">Ver tienda</button>
             </div>
           </article>
+          
         </main>
 </template>
 
@@ -27,7 +28,12 @@ export default {
     async loadData() {
       const response = await fetch('http://localhost:5000/api/sellers')
       this.sellers = await response.json()
+
+    },
+    sendToShop(seller_id){
+      this.$router.push("/shop/"+ seller_id)
     }
+    
   }
 
 
@@ -35,6 +41,9 @@ export default {
 </script>
 
 <style scoped>
+button:hover{
+  cursor:pointer;
+}
 .grid {
   margin: 30px;
   display: grid;
