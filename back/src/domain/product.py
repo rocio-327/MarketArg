@@ -71,7 +71,7 @@ class ProductRepository:
         return products
 
     def search_by_product_name(self, product_name):
-        sql = """select * from products where product_name=:product_name"""
+        sql = """SELECT * FROM products WHERE product_name=:product_name"""
         conn = self.create_conn()
         cursor = conn.cursor()
         cursor.execute(sql, {"product_name": product_name})
@@ -85,11 +85,11 @@ class ProductRepository:
 
         return products
 
-    def get_product_by_seller_id(self, product_id):
-        sql = """SELECT * FROM products WHERE seller_id=:product_id"""
+    def get_product_by_seller_id(self, seller_id):
+        sql = """SELECT * FROM products WHERE seller_id=:seller_id"""
         conn = self.create_conn()
         cursor = conn.cursor()
-        cursor.execute(sql, {"product_id": product_id})
+        cursor.execute(sql, {"seller_id": seller_id})
 
         data = cursor.fetchall()
 

@@ -4,7 +4,8 @@
 <figure v-for="product in product_list" :key="product" class="snip1268">
   <div class="image">
     <img :src="product.product_img" alt="sq-sample4"/>
-    <a href="#" class="add-to-cart">Add to Cart</a>
+    <a href="#" class="add-to-cart" @click="sendToContact">Add to Cart</a>
+     
   </div>
   <figcaption>
     <h2>{{product.product_name}}</h2>
@@ -31,8 +32,11 @@ export default {
   },
   methods: {
     async loadData() {
-      const response = await fetch('http://localhost:5000/api/sellers/'+ this.$route.params.id)
+      const response = await fetch('http://localhost:5000/api/sellers/products/'+ this.$route.params.id)
       this.product_list = await response.json()
+    },
+    sendToContact() {
+        this.$router.push("/shop/contact/" + this.$route.params.id)
     }
   }
 }
