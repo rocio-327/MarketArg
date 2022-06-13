@@ -4,7 +4,7 @@
 <figure v-for="product in product_list" :key="product" class="snip1268">
   <div class="image">
     <img :src="product.product_img" alt="sq-sample4"/>
-    <a href="#" class="add-to-cart" @click="sendToContact">Add to Cart</a>
+    <a class="add-to-cart" @click="addToCart(product)">Añadir al carrito</a>
      
   </div>
   <figcaption>
@@ -13,6 +13,12 @@
     <div class="price">{{product.product_price}} </div>
   </figcaption>
 </figure>
+<article>
+<h2> Articulos en el carrito </h2>
+<p v-for="selected_product in selected_products" :key="selected_product" > 
+  {{selected_product.product_name}}</p>
+<a href="cart/contact"> CONTACTAR CON EL VENDEDOR </a>
+   </article>
 
 </main>
 </template>
@@ -24,7 +30,8 @@ export default {
   name: 'Stores',
   data() {
     return {
-      product_list: []
+      product_list: [],
+      selected_products: []
     }
   },
   mounted() {
@@ -37,7 +44,15 @@ export default {
     },
     sendToContact() {
         this.$router.push("/shop/contact/" + this.$route.params.id)
+    },
+    addToCart(product) {
+      this.selected_products.push(product)
+      console.log(product)
+      localStorage.setItem("selectedProducts", JSON.stringify(this.selected_products))
     }
+  
+
+
   }
 }
 </script>

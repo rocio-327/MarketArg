@@ -12,7 +12,7 @@ const routes = [
 		component: () => import("@/pages/shop/stores.vue"),
 	},
 	{
-		path: "/shop/contact/:id",
+		path: "/shop/cart/contact",
 		name: "StoreContact",
 		component: () => import("@/pages/shop/ContactSeller.vue"),
 	},

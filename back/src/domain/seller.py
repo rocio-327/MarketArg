@@ -62,7 +62,7 @@ class SellerRepository:
         return sellers
 
     def search_by_seller_name(self, seller_name):
-        sql = """select * from sellers where seller_name=:seller_name"""
+        sql = """SELECT * FROM sellers WHERE seller_name=:seller_name"""
         conn = self.create_conn()
         cursor = conn.cursor()
         cursor.execute(sql, {"seller_name": seller_name})

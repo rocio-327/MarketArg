@@ -1,15 +1,16 @@
 <template>
-    <div> {{contact_info.seller_email}}</div>
-    <div> {{contact_info.seller_id}}</div>
-    <img :src="contact_info.seller_logo" alt="Sample photo">
-  
+<h1>Carrito</h1>
+<div v-for="product in selected_products" :key="product.id"> 
+  <h2>{{product.product_name}}</h2>
+  <img :src="product.product_img" alt="">
+</div>
 </template>
 
 <script>
 export default {
     data() {
         return {
-        contact_info: []
+        selected_products: []
         }
     },
     mounted() {
@@ -17,9 +18,13 @@ export default {
     },
 
     methods: {
-    async loadData() {
-      const response = await fetch('http://localhost:5000/api/sellers/'+ this.$route.params.id)
-      this.contact_info = await response.json()
+      loadData() {
+        let products = localStorage.getItem("selectedProducts")
+        let jsonProducts = JSON.parse(products)
+        this.selected_products = jsonProducts
+        console.log(products)
+      // const response = await fetch('http://localhost:5000/api/sellers/'+ this.$route.params.id)
+      // this.contact_info = await response.json()
     }
 
   }
@@ -28,5 +33,8 @@ export default {
 </script>
 
 <style>
+img {
+  width: 9rem;
+}
 
 </style>
