@@ -130,6 +130,24 @@ def main():
         product_img="https://i.pinimg.com/474x/b5/44/5a/b5445aadd2378729166b3290cd07bd47.jpg",
     )
 
+    product11 = Product(
+        seller_id="Elias",
+        product_id="11",
+        product_description="Sillones (2unidades) y mesa de jardin",
+        product_name="Juego de jardin",
+        product_price="63.99€",
+        product_img="http://conpalets.com/wp-content/uploads/2015/06/sillones-para-terraza-con-mesa.jpg",
+    )
+
+    product12 = Product(
+        seller_id="Elias",
+        product_id="12",
+        product_description="Sillon simple",
+        product_name="Sillon interior / exterior ",
+        product_price="33.78€",
+        product_img="https://www.integrapalets.com/imagen1_amplia/150581002772930.jpg",
+    )
+
     seller_repository.save(seller1)
     seller_repository.save(seller2)
     seller_repository.save(seller3)
@@ -144,6 +162,9 @@ def main():
     product_repository.save(product8)
     product_repository.save(product9)
     product_repository.save(product10)
+    product_repository.save(product11)
+    product_repository.save(product12)
+
     print("Datos iniciales cargados (se ha ejecutado initial_data.py)")
 
 

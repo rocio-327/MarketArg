@@ -1,4 +1,5 @@
 <template>
+    <h1> Market Place Emprendedores Argentinos </h1>
     <main class="grid">
           <article v-for="seller in sellers" :key="seller.seller_id">
             <img :src="seller.seller_logo" alt="Sample photo">
@@ -8,6 +9,7 @@
               <button @click="sendToShop(seller.seller_id)">Ver tienda</button>
             </div>
           </article>
+          
           
         </main>
 </template>
