@@ -1,8 +1,9 @@
 <template>
 <h1>Carrito</h1>
-<div v-for="product in selected_products" :key="product.id"> 
+<div v-for="product in selected_products" :key="product.id">
   <h2>{{product.product_name}}</h2>
   <img :src="product.product_img" alt="">
+  <button @click="removeProducts(product)" class="remove_button" >Eliminar producto</button>
 </div>
 </template>
 
@@ -22,13 +23,12 @@ export default {
         let products = localStorage.getItem("selectedProducts")
         let jsonProducts = JSON.parse(products)
         this.selected_products = jsonProducts
-        console.log(products)
-      // const response = await fetch('http://localhost:5000/api/sellers/'+ this.$route.params.id)
-      // this.contact_info = await response.json()
+    },
+      removeProducts(product) {
+        let index = this.selected_products.indexOf(product)
+        this.selected_products.splice(index, 1)
     }
-
   }
-
 }
 </script>
 

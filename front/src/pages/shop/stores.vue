@@ -14,7 +14,7 @@
   </figcaption>
 </figure>
 <article>
-<h2> Articulos en el carrito </h2>
+<h2> Articulos en el carrito {{counterProducts()}} </h2>
 <p v-for="selected_product in selected_products" :key="selected_product" > 
   {{selected_product.product_name}}</p>
 <a href="cart/contact"> CONTACTAR CON EL VENDEDOR </a>
@@ -47,9 +47,13 @@ export default {
     },
     addToCart(product) {
       this.selected_products.push(product)
-      console.log(product)
+      
       localStorage.setItem("selectedProducts", JSON.stringify(this.selected_products))
+    },
+    counterProducts() {
+      return this.selected_products.length
     }
+
   
 
 
