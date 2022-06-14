@@ -4,21 +4,22 @@
 <figure v-for="product in product_list" :key="product" class="snip1268">
   <div class="image">
     <img :src="product.product_img" alt="sq-sample4"/>
-    <a class="add-to-cart" @click="addToCart(product)">Añadir al carrito</a>
-     
+    <a class="add-to-cart" @click="addToCart(product)">Añadir al carrito</a>    
   </div>
+
   <figcaption>
     <h2>{{product.product_name}}</h2>
-    <p>{{product.product_description}}</p>
+    <h5> Detalles : {{product.product_description}}</h5>
     <div class="price">{{product.product_price}} </div>
   </figcaption>
 </figure>
+
 <article>
-<h2> Articulos en el carrito {{counterProducts()}} </h2>
-<p v-for="selected_product in selected_products" :key="selected_product" > 
-  {{selected_product.product_name}}</p>
-<a href="cart/contact"> CONTACTAR CON EL VENDEDOR </a>
-   </article>
+<h3> Articulos en el carrito :  {{counterProducts()}} </h3>
+<h4 v-for="selected_product in selected_products" :key="selected_product" > 
+  {{selected_product.product_name}}</h4>
+<a href="cart/contact"> ¡¡CONTACTAR CON EL VENDEDOR!! </a>
+</article>
 
 </main>
 </template>

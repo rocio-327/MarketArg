@@ -1,13 +1,12 @@
 <template>
-<h1>Carrito</h1>
+<h2>Mi Carrito: </h2>
 <div v-for="product in selected_products" :key="product.id">
-  <h2>{{product.product_name}}</h2>
+  <h3>{{product.product_name}}</h3>
   <img :src="product.product_img" alt=""/>
   <button @click="removeProducts(product)" class="remove_button" >Eliminar producto</button>
-
-<div> {{contact_seller.seller_email}}</div>
-  <div> {{contact_seller.seller_id}}</div>
+  <h3>Contacto del vendedor : </h3>
   <img :src="contact_seller.seller_logo" alt="Sample photo">
+  <h4><div> {{contact_seller.seller_email}}</div></h4>
 
 </div>
 </template>

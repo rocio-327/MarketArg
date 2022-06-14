@@ -5,7 +5,7 @@
             <img :src="seller.seller_logo" alt="Sample photo">
             <div class="text">
               <h3>{{seller.seller_name}}</h3>
-              <p>{{seller.seller_description}}</p>
+              <h5>{{seller.seller_description}}</h5>
               <button @click="sendToShop(seller.seller_id)">Ver tienda</button>
             </div>
           </article>
@@ -43,6 +43,12 @@ export default {
 </script>
 
 <style scoped>
+
+h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
 button:hover{
   cursor:pointer;
 }
