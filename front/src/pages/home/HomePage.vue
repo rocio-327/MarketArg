@@ -8,10 +8,8 @@
               <h5>{{seller.seller_description}}</h5>
               <button @click="sendToShop(seller.seller_id)">Ver tienda</button>
             </div>
-          </article>
-          
-          
-        </main>
+          </article>    
+    </main>
 </template>
 
 <script>

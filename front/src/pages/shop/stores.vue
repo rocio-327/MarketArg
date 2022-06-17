@@ -1,4 +1,3 @@
-
 <template>
 <main>
 <figure v-for="product in product_list" :key="product" class="snip1268">
@@ -18,13 +17,11 @@
 <h3> Articulos en el carrito :  {{counterProducts()}} </h3>
 <h4 v-for="selected_product in selected_products" :key="selected_product" > 
   {{selected_product.product_name}}</h4>
-<a href="cart/contact"> ¡¡CONTACTAR CON EL VENDEDOR!! </a>
+<a href="cart/contact"> ¡¡VER PRODUCTOS SELECCIONADOS!! </a>
 </article>
 
 </main>
 </template>
-
-
 <script>
 
 export default {
