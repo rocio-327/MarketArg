@@ -1,6 +1,7 @@
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS
 from src.lib.utils import object_to_json
+from src.domain.seller import Seller
 
 
 def create_app(repositories):
@@ -25,5 +26,11 @@ def create_app(repositories):
     def get_sellers_by_id(id):
         sellers = repositories["sellers"].get_sellers_by_id(id)
         return object_to_json(sellers)
+
+    @app.route("/api/request", methods=["POST"])
+    def clien_request():
+        data = request.json
+        repositories["sellers"].save_request(data)
+        return ""
 
     return app

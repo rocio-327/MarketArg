@@ -46,7 +46,7 @@ class SellerRepository:
             create table if not exists request (
                 seller_id varchar PRIMARY KEY,
                 user_email varchar,
-                user_request 
+                user_request varchar
             )
         """
         conn = self.create_conn()
@@ -82,7 +82,7 @@ class SellerRepository:
         sellers = []
         for item in data:
             sellers = Seller(**item)
-            sellers.append(seller)
+            sellers.append(sellers)
 
         return sellers
 
@@ -111,5 +111,22 @@ class SellerRepository:
         cursor.execute(
             sql,
             seller.to_dict(),
+        )
+        conn.commit()
+
+    def save_request(self, data):
+        sql = """insert OR REPLACE into request (seller_id, user_email, user_request) values (
+            :seller_id, :user_email, :user_request
+        ) """
+
+        conn = self.create_conn()
+        cursor = conn.cursor()
+        cursor.execute(
+            sql,
+            {
+                "seller_id": data["seller_id"],
+                "user_email": data["user_email"],
+                "user_request": data["user_request"],
+            },
         )
         conn.commit()
