@@ -41,9 +41,19 @@ class SellerRepository:
                 seller_email varchar
             )
         """
+
+        sql_user_request = """
+            create table if not exists request (
+                seller_id varchar PRIMARY KEY,
+                user_email varchar,
+                user_request 
+            )
+        """
         conn = self.create_conn()
         cursor = conn.cursor()
         cursor.execute(sql)
+        cursor.execute(sql_user_request)
+
         conn.commit()
 
     def get_all_sellers(self):
