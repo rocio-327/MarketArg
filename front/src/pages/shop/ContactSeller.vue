@@ -40,6 +40,7 @@ export default {
         let response = await fetch("http://localhost:5000/api/sellers/" + seller_id)
         let data = await response.json()
         this.contact_seller = data
+        this.client_request.seller_id = data.seller_id
         return data
       },
 
