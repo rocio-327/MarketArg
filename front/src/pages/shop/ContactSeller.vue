@@ -9,9 +9,9 @@
 </div>
   <form id="formulario">
     <div id="content">
-      <h4><label> Enviar consulta: </label></h4><br>
-      <textarea id="contenido" name="comment" cols="30" rows="5" v-model="client_request.user_request"> Ingresa aqui el mensaje...</textarea><br>
-      <label> Mi e-mail de contacto: </label><br>
+      <h4><label> Enviar consulta: </label></h4>
+      <br><textarea id="contenido" name="comment" cols="30" rows="5" v-model="client_request.user_request"> Ingresa aqui el mensaje...</textarea><br>
+      <h4><label> Mi e-mail de contacto: </label></h4><br>
       <input id="email" name="email" type="text" v-model="client_request.user_email"/>
       <button type="button" @click="sendEmail"> Enviar </button>
     </div>
@@ -76,12 +76,42 @@ export default {
 img {
   width: 9rem;
 }
+button {
 
+  background: #eb94d0;
+  background-image: -webkit-linear-gradient(top, #eb94d0, #2079b0);
+  background-image: -moz-linear-gradient(top, #eb94d0, #2079b0);
+  background-image: -ms-linear-gradient(top, #eb94d0, #2079b0);
+  background-image: -o-linear-gradient(top, #eb94d0, #2079b0);
+  background-image: linear-gradient(to bottom, #eb94d0, #2079b0);
+  -webkit-border-radius: 25;
+  -moz-border-radius: 23;
+  border-radius: 25px;
+  -webkit-box-shadow: 6px 5px 24px #666666;
+  -moz-box-shadow: 6px 5px 24px #666666;
+  box-shadow: 6px 5px 24px #666666;
+  font-family: Arial;
+  color: #fafafa;
+  font-size: 20px;
+  padding: 9px;
+  text-decoration: none;
+}
+button:hover {
+  background: #2079b0;
+  background-image: -webkit-linear-gradient(top, #2079b0, #eb94d0);
+  background-image: -moz-linear-gradient(top, #2079b0, #eb94d0);
+  background-image: -ms-linear-gradient(top, #2079b0, #eb94d0);
+  background-image: -o-linear-gradient(top, #2079b0, #eb94d0);
+  background-image: linear-gradient(to bottom, #2079b0, #eb94d0);
+  text-decoration: none;
+}
 
 div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 3px;
 }
+
 
 </style>
